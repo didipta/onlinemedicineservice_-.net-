@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using onlinemedicineservice__.net_.Models.Database;
+using Businesslogic;
+using Businesslogic.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,34 +18,35 @@ namespace onlinemedicineservice__.net_.Controllers
         [HttpGet]
         public HttpResponseMessage Homepage()
         {
-            Entities Project = new Entities();
-            var config = new MapperConfiguration(
-                cfg =>
-                {
-                    cfg.CreateMap<Category, categorymodel>();
-                    cfg.CreateMap<Product, productmodel>();
-                }
-
-                );
-            var categorie = Project.Categories.ToList();
-            Mapper mapper = new Mapper(config);
-            var categories = mapper.Map<List<categorymodel>>(categorie);
-            //ViewBag.categories = categories;
-            var products = Project.Products.ToList();
-            var product = mapper.Map<List<productmodel>>(products);
-            /*if (Session["Usernmae"] != null)
-            {
-                //ViewBag.username = Session["Usernmae"].ToString();
-            }
-            else
-            {
-                ViewBag.username = " ";
-            }
-            */
-
+         
+            var product = productservice.Getproduct();
+            var categories = productservice.Getcategorie();
             List<object> data = new List<object> { new { products = product, categorie = categories } };
 
             return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/user/product/{id}")]
+        [HttpGet]
+        public HttpResponseMessage products(int id)
+        {
+
+            var product = productservice.products(id);
+            
+
+            return Request.CreateResponse(HttpStatusCode.OK, product);
+        }
+
+
+        [Route("api/user/addtocart/{id}")]
+        [HttpGet]
+        public HttpResponseMessage Addtocart(int id)
+        {
+
+            var product = productservice.Addtocart(id);
+
+
+            return Request.CreateResponse(HttpStatusCode.OK, product);
         }
     }
 }

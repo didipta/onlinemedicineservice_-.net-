@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "onlinemedicineservice_(.net)", "onlinemedicineservice_(.net)\onlinemedicineservice_(.net).csproj", "{0C85A8CD-7AA1-499C-ACB0-988708A1CDD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{7D7F36D1-3938-4BFB-9F7B-42617B1BB14F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Businesslogic", "Businesslogic\Businesslogic.csproj", "{D4EEE9A9-0874-488D-9D69-AAA99D4F034C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0C85A8CD-7AA1-499C-ACB0-988708A1CDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C85A8CD-7AA1-499C-ACB0-988708A1CDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C85A8CD-7AA1-499C-ACB0-988708A1CDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D7F36D1-3938-4BFB-9F7B-42617B1BB14F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D7F36D1-3938-4BFB-9F7B-42617B1BB14F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D7F36D1-3938-4BFB-9F7B-42617B1BB14F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D7F36D1-3938-4BFB-9F7B-42617B1BB14F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EEE9A9-0874-488D-9D69-AAA99D4F034C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EEE9A9-0874-488D-9D69-AAA99D4F034C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EEE9A9-0874-488D-9D69-AAA99D4F034C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EEE9A9-0874-488D-9D69-AAA99D4F034C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

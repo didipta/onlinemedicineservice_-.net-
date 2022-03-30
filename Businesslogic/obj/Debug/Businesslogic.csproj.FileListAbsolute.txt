@@ -1,0 +1,14 @@
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\Businesslogic.dll
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\Businesslogic.pdb
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\AutoMapper.dll
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\DataLayer.dll
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\EntityFramework.dll
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\DataLayer.pdb
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\DataLayer.dll.config
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\AutoMapper.xml
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\bin\Debug\EntityFramework.xml
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.csproj.AssemblyReference.cache
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.csproj.CoreCompileInputs.cache
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.csproj.CopyComplete
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.dll
+D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.pdb

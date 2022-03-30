@@ -74,3 +74,8 @@ D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\
 D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\System.Web.Http.Cors.dll
 D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\AutoMapper.xml
 D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\System.Web.Http.Cors.xml
+D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\Businesslogic.dll
+D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\DataLayer.dll
+D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\Businesslogic.pdb
+D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\DataLayer.pdb
+D:\Final .net project\onlinemedicineservice_(.net)\onlinemedicineservice_(.net)\bin\DataLayer.dll.config
