@@ -16,12 +16,22 @@ namespace DataLayer
 
         public static IRepository<Product, int> ProductDataAccess()
         {
-            return new productrepo();
+            return new productrepo(db);
+        }
+
+        public static IRepository<Systemuser, int> userDataAccess()
+        {
+            return new systemuserrepo(db);
+        }
+
+        public static ILogin<Systemuser> LoginDataAccess()
+        {
+            return new systemuserrepo(db);
         }
 
         public static IRepository<Category, int> CategoryDataAccess()
         {
-            return new categoryrepo();
+            return new categoryrepo(db);
         }
 
     }

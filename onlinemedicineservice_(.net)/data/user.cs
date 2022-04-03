@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Businesslogic.Entity
+namespace onlinemedicineservice__.net_.data
 {
-   public class Systemusermodel
+    public class user
     {
         public int Id { get; set; }
         public string U_name { get; set; }

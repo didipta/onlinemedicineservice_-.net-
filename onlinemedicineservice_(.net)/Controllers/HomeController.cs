@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Businesslogic;
 using Businesslogic.Service;
+using onlinemedicineservice__.net_.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,10 +44,32 @@ namespace onlinemedicineservice__.net_.Controllers
         public HttpResponseMessage Addtocart(int id)
         {
 
-            var product = productservice.Addtocart(id);
+            var product = productservice.productitem(id);
+            var rating = productservice.ratings(id);
 
+            double x = 0;
+            foreach (var item in rating.Ratings)
+            {
+                x += item.rating1;
+            }
 
-            return Request.CreateResponse(HttpStatusCode.OK, product);
+            double y = (x / rating.Ratings.Count());
+           var totalrat = y;
+
+            List<object> data = new List<object> { new { totalrat = totalrat, rating = rating, product= product } };
+            return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [Route("api/user/Login")]
+        [HttpPost]
+        public HttpResponseMessage Login(user u)
+        {
+            var data = usersercice.Loging(u.U_username, u.U_password);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+
+            
+        }
+
+
     }
 }

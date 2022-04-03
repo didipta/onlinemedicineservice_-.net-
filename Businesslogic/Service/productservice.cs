@@ -59,7 +59,7 @@ namespace Businesslogic.Service
 
         public static productcategorymodel products(int id)
         {
-            var catgory = DataAccessFactory.CategoryDataAccess().Getitem(id);
+            var catgory = DataAccessFactory.CategoryDataAccess().Get(id);
             var config = new MapperConfiguration(
             cfg =>
             {
@@ -70,6 +70,24 @@ namespace Businesslogic.Service
             );
             Mapper mapper = new Mapper(config);
             var data = mapper.Map<productcategorymodel>(catgory);
+            return data;
+
+        }
+
+
+        public static productratingmodel ratings(int id)
+        {
+            var product = DataAccessFactory.ProductDataAccess().Get(id);
+            var config = new MapperConfiguration(
+            cfg =>
+            {
+                cfg.CreateMap<Product, productratingmodel>();
+                cfg.CreateMap<Rating, ratingmodel>();
+            }
+
+            );
+            Mapper mapper = new Mapper(config);
+            var data = mapper.Map<productratingmodel>(product);
             return data;
 
         }
@@ -91,6 +109,23 @@ namespace Businesslogic.Service
             Mapper mapper = new Mapper(config);
             var productss = mapper.Map<productmodel>(product);
             return productss;
+
+        }
+
+        public static productcategorymodel productitem(int id)
+        {
+            var catgory = DataAccessFactory.CategoryDataAccess().Getitem(id);
+            var config = new MapperConfiguration(
+            cfg =>
+            {
+                cfg.CreateMap<Category, productcategorymodel>();
+                cfg.CreateMap<Product, productmodel>();
+            }
+
+            );
+            Mapper mapper = new Mapper(config);
+            var data = mapper.Map<productcategorymodel>(catgory);
+            return data;
 
         }
     }

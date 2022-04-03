@@ -9,7 +9,12 @@ namespace DataLayer.dataRepo
 {
    public class categoryrepo : IRepository<Category, int>
     {
-        Entities project = new Entities();
+        Entities project;
+        public categoryrepo(Entities db)
+        {
+            project = db;
+        }
+
         public bool Add(Category obj)
         {
             throw new NotImplementedException();
@@ -27,10 +32,14 @@ namespace DataLayer.dataRepo
 
         public Category Get(int id)
         {
-            throw new NotImplementedException();
+            var cate = (from C in project.Categories
+                        where C.Id == id
+                        select C).FirstOrDefault();
+
+            return cate;
         }
 
-        public List<Category> Get()
+            public List<Category> Get()
         {
             Entities project = new Entities();
             var Categorie = project.Categories.ToList();
@@ -39,11 +48,16 @@ namespace DataLayer.dataRepo
         }
         public Category Getitem(int id)
         {
+            var Prodruct = (from P in project.Products
+                            where P.Id == id
+                            select P).FirstOrDefault();
+
             var cate = (from C in project.Categories
-                        where C.Id == id
+                        where C.Id ==Prodruct.P_categorie_id
                         select C).FirstOrDefault();
 
             return cate;
+
         }
     }
 }

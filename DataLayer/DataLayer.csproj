@@ -99,6 +99,10 @@
     </Compile>
     <Compile Include="dataRepo\categoryrepo.cs" />
     <Compile Include="dataRepo\productrepo.cs" />
+    <Compile Include="dataRepo\ratingrepo.cs" />
+    <Compile Include="dataRepo\systemuserrepo.cs" />
+    <Compile Include="IAuth.cs" />
+    <Compile Include="ILogin.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

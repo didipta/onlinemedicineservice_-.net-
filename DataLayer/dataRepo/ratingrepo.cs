@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.datarazos
+namespace DataLayer.dataRepo
 {
-    public class productrepo : IRepository<Product, int>
+    public class ratingrepo : IRepository<Rating, int>
     {
         Entities project;
-        public productrepo(Entities db)
+        public ratingrepo(Entities db)
         {
             project = db;
         }
-        public bool Add(Product obj)
+        public bool Add(Rating obj)
         {
             throw new NotImplementedException();
         }
@@ -24,31 +24,24 @@ namespace DataLayer.datarazos
             throw new NotImplementedException();
         }
 
-        public bool Edit(Product obj)
+        public bool Edit(Rating obj)
         {
             throw new NotImplementedException();
         }
 
-        public Product Get(int id)
+        public Rating Get(int id)
         {
-            var Prodruct = (from P in project.Products
-                            where P.Id == id
-                            select P).FirstOrDefault();
-            return Prodruct;
-
+            throw new NotImplementedException();
         }
 
-        public List<Product> Get()
+        public List<Rating> Get()
         {
-            
-            return project.Products.ToList();
-           
+            throw new NotImplementedException();
         }
 
-        public Product Getitem(int id)
+        public Rating Getitem(int id)
         {
             throw new NotImplementedException();
         }
     }
-   
 }
