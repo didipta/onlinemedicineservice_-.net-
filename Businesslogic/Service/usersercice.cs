@@ -19,6 +19,7 @@ namespace Businesslogic.Service
               cfg =>
               {
                   cfg.CreateMap<Systemuser, Systemusermodel > ();
+
                   
               }
 
