@@ -120,14 +120,9 @@
           <Property Name="U_profileimg" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="pharmacyname" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Medicine(medlife).dbo.Token' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Token">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="AccessToken" />
-            <PropertyRef Name="CreatedAt" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
@@ -266,15 +261,7 @@ warning 6002: The table/view 'Medicine(medlife).dbo.Token' does not have a prima
           <EntitySet Name="returndetelis" EntityType="Self.returndetelis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Returnproduct" EntityType="Self.Returnproduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Systemusers" EntityType="Self.Systemusers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Token" EntityType="Self.Token" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Token].[Id] AS [Id], 
-    [Token].[user_id] AS [user_id], 
-    [Token].[AccessToken] AS [AccessToken], 
-    [Token].[CreatedAt] AS [CreatedAt], 
-    [Token].[ExpiredAt] AS [ExpiredAt]
-    FROM [dbo].[Token] AS [Token]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_addtocart_Products" Association="Self.FK_addtocart_Products">
             <End Role="Products" EntitySet="Products" />
             <End Role="addtocart" EntitySet="addtocart" />
@@ -458,9 +445,6 @@ warning 6002: The table/view 'Medicine(medlife).dbo.Token' does not have a prima
         <EntityType Name="Token">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="AccessToken" />
-            <PropertyRef Name="CreatedAt" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" Nullable="false" />

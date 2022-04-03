@@ -137,9 +137,6 @@
   <EntityType Name="Token">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="user_id" />
-      <PropertyRef Name="AccessToken" />
-      <PropertyRef Name="CreatedAt" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="user_id" Type="Int32" Nullable="false" />
