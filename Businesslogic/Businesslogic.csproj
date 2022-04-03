@@ -49,6 +49,8 @@
     <Compile Include="Entity\productratingmodel.cs" />
     <Compile Include="Entity\ratingmodel.cs" />
     <Compile Include="Entity\Systemusermodel.cs" />
+    <Compile Include="Entity\Tokenmodel.cs" />
+    <Compile Include="Entity\userstokenmodel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\categorymodel.cs" />
     <Compile Include="Entity\productmodel.cs" />

@@ -35,5 +35,6 @@ namespace DataLayer.Database
         public virtual DbSet<returndeteli> returndetelis { get; set; }
         public virtual DbSet<Returnproduct> Returnproducts { get; set; }
         public virtual DbSet<Systemuser> Systemusers { get; set; }
+        public virtual DbSet<Token> Tokens { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace DataLayer.Database
         public Systemuser()
         {
             this.myorders = new HashSet<myorder>();
+            this.Tokens = new HashSet<Token>();
         }
     
         public int Id { get; set; }
@@ -33,5 +34,7 @@ namespace DataLayer.Database
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<myorder> myorders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Token> Tokens { get; set; }
     }
 }

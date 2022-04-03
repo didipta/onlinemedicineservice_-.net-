@@ -120,6 +120,21 @@
           <Property Name="U_profileimg" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="pharmacyname" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Medicine(medlife).dbo.Token' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="AccessToken" />
+            <PropertyRef Name="CreatedAt" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="AccessToken" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ExpiredAt" Type="datetime" />
+        </EntityType>
         <Association Name="FK_addtocart_Products">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="addtocart" Type="Self.addtocart" Multiplicity="*" />
@@ -228,6 +243,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Token_Systemusers">
+          <End Role="Systemusers" Type="Self.Systemusers" Multiplicity="1" />
+          <End Role="Token" Type="Self.Token" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Systemusers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Token">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="addtocart" EntityType="Self.addtocart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
@@ -239,6 +266,15 @@
           <EntitySet Name="returndetelis" EntityType="Self.returndetelis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Returnproduct" EntityType="Self.Returnproduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Systemusers" EntityType="Self.Systemusers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token" EntityType="Self.Token" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Token].[Id] AS [Id], 
+    [Token].[user_id] AS [user_id], 
+    [Token].[AccessToken] AS [AccessToken], 
+    [Token].[CreatedAt] AS [CreatedAt], 
+    [Token].[ExpiredAt] AS [ExpiredAt]
+    FROM [dbo].[Token] AS [Token]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_addtocart_Products" Association="Self.FK_addtocart_Products">
             <End Role="Products" EntitySet="Products" />
             <End Role="addtocart" EntitySet="addtocart" />
@@ -274,6 +310,10 @@
           <AssociationSet Name="FK_returndetelis_Returnproduct" Association="Self.FK_returndetelis_Returnproduct">
             <End Role="Returnproduct" EntitySet="Returnproduct" />
             <End Role="returndetelis" EntitySet="returndetelis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Token_Systemusers" Association="Self.FK_Token_Systemusers">
+            <End Role="Systemusers" EntitySet="Systemusers" />
+            <End Role="Token" EntitySet="Token" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -413,6 +453,21 @@
           <Property Name="U_profileimg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="pharmacyname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="myorders" Relationship="Self.FK_myorders_myorders" FromRole="Systemusers" ToRole="myorders" />
+          <NavigationProperty Name="Tokens" Relationship="Self.FK_Token_Systemusers" FromRole="Systemusers" ToRole="Token" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="AccessToken" />
+            <PropertyRef Name="CreatedAt" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="AccessToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiredAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Systemuser" Relationship="Self.FK_Token_Systemusers" FromRole="Token" ToRole="Systemusers" />
         </EntityType>
         <Association Name="FK_addtocart_Products">
           <End Role="Products" Type="Self.Product" Multiplicity="1" />
@@ -522,6 +577,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Token_Systemusers">
+          <End Role="Systemusers" Type="Self.Systemuser" Multiplicity="1" />
+          <End Role="Token" Type="Self.Token" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Systemusers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Token">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="addtocarts" EntityType="Self.addtocart" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
@@ -533,6 +600,7 @@
           <EntitySet Name="returndetelis" EntityType="Self.returndeteli" />
           <EntitySet Name="Returnproducts" EntityType="Self.Returnproduct" />
           <EntitySet Name="Systemusers" EntityType="Self.Systemuser" />
+          <EntitySet Name="Tokens" EntityType="Self.Token" />
           <AssociationSet Name="FK_addtocart_Products" Association="Self.FK_addtocart_Products">
             <End Role="Products" EntitySet="Products" />
             <End Role="addtocart" EntitySet="addtocarts" />
@@ -568,6 +636,10 @@
           <AssociationSet Name="FK_returndetelis_Returnproduct" Association="Self.FK_returndetelis_Returnproduct">
             <End Role="Returnproduct" EntitySet="Returnproducts" />
             <End Role="returndetelis" EntitySet="returndetelis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Token_Systemusers" Association="Self.FK_Token_Systemusers">
+            <End Role="Systemusers" EntitySet="Systemusers" />
+            <End Role="Token" EntitySet="Tokens" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -698,6 +770,17 @@
                 <ScalarProperty Name="Usertype" ColumnName="Usertype" />
                 <ScalarProperty Name="U_profileimg" ColumnName="U_profileimg" />
                 <ScalarProperty Name="pharmacyname" ColumnName="pharmacyname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="Model.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="AccessToken" ColumnName="AccessToken" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="ExpiredAt" ColumnName="ExpiredAt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

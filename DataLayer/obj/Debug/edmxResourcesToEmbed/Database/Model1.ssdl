@@ -115,6 +115,21 @@
     <Property Name="U_profileimg" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="pharmacyname" Type="varchar" MaxLength="500" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Medicine(medlife).dbo.Token' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="AccessToken" />
+      <PropertyRef Name="CreatedAt" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="AccessToken" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="ExpiredAt" Type="datetime" />
+  </EntityType>
   <Association Name="FK_addtocart_Products">
     <End Role="Products" Type="Self.Products" Multiplicity="1" />
     <End Role="addtocart" Type="Self.addtocart" Multiplicity="*" />
@@ -223,6 +238,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Token_Systemusers">
+    <End Role="Systemusers" Type="Self.Systemusers" Multiplicity="1" />
+    <End Role="Token" Type="Self.Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Systemusers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ModelStoreContainer">
     <EntitySet Name="addtocart" EntityType="Self.addtocart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
@@ -234,6 +261,15 @@
     <EntitySet Name="returndetelis" EntityType="Self.returndetelis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Returnproduct" EntityType="Self.Returnproduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Systemusers" EntityType="Self.Systemusers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Token" EntityType="Self.Token" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Token].[Id] AS [Id], 
+    [Token].[user_id] AS [user_id], 
+    [Token].[AccessToken] AS [AccessToken], 
+    [Token].[CreatedAt] AS [CreatedAt], 
+    [Token].[ExpiredAt] AS [ExpiredAt]
+    FROM [dbo].[Token] AS [Token]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_addtocart_Products" Association="Self.FK_addtocart_Products">
       <End Role="Products" EntitySet="Products" />
       <End Role="addtocart" EntitySet="addtocart" />
@@ -269,6 +305,10 @@
     <AssociationSet Name="FK_returndetelis_Returnproduct" Association="Self.FK_returndetelis_Returnproduct">
       <End Role="Returnproduct" EntitySet="Returnproduct" />
       <End Role="returndetelis" EntitySet="returndetelis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Token_Systemusers" Association="Self.FK_Token_Systemusers">
+      <End Role="Systemusers" EntitySet="Systemusers" />
+      <End Role="Token" EntitySet="Token" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

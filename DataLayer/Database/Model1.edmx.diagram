@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="adcdc25a042348c1a75091ff8fb78125" Name="Diagram1" ZoomLevel="47">
+      <Diagram DiagramId="3cb3c6e0f9f743c9bedd6060b2fe1ed2" Name="Diagram1">
         <EntityTypeShape EntityType="Model.addtocart" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.deliverinfo" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
@@ -14,7 +14,8 @@
         <EntityTypeShape EntityType="Model.Rating" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.returndeteli" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Returnproduct" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Systemuser" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Systemuser" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Token" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_addtocart_Products" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_deliverinfo_myorders" ManuallyRouted="false" />
@@ -24,6 +25,7 @@
         <AssociationConnector Association="Model.FK_Rating_Products" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_returndetelis_Products" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_returndetelis_Returnproduct" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Token_Systemusers" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
