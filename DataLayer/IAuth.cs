@@ -11,6 +11,6 @@ namespace DataLayer
     {
         Token Authenticate(Systemuser user);
         bool IsAuthenticated(string token);
-        void Logout(Systemuser user);
+        void Logout(int id);
     }
 }

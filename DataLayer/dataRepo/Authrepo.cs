@@ -17,17 +17,54 @@ namespace DataLayer.dataRepo
         }
         public Token Authenticate(Systemuser user)
         {
-            throw new NotImplementedException();
+            Token t = null;
+            var use= (from u in project.Systemusers
+                    where u.U_username.Equals(user.U_username) &&
+                    u.U_password.Equals(user.U_password)
+                    select u).FirstOrDefault();
+            if (use != null)
+            {
+                var r = new Random();
+                var g = Guid.NewGuid();
+                var token = g.ToString();
+
+                t = new Token()
+                {
+                    user_id = use.Id,
+                    AccessToken = token,
+                    CreatedAt = DateTime.Now
+
+                };
+                project.Tokens.Add(t);
+                project.SaveChanges();
+
+            }
+
+            return t;
+
+
         }
 
         public bool IsAuthenticated(string token)
         {
-            throw new NotImplementedException();
+            var ac_token = (from t in project.Tokens
+                            where t.AccessToken.Equals(token) &&
+                            t.ExpiredAt.Equals(null)
+                            select t).FirstOrDefault();
+            if (ac_token != null) return true;
+            return false;
+            if (ac_token != null) return true;
+            return false;
         }
 
-        public void Logout(Systemuser user)
+        public void Logout(int id)
         {
-            throw new NotImplementedException();
+            var token = (from t in project.Tokens
+                            where t.Id.Equals(id)
+                            select t).FirstOrDefault();
+            token.ExpiredAt = System.DateTime.Now;
+            project.Entry(token).CurrentValues.SetValues(token);
+            project.SaveChanges();
         }
     }
 }

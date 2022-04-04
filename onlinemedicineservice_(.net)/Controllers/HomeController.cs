@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Businesslogic;
+using Businesslogic.Entity;
 using Businesslogic.Service;
 using onlinemedicineservice__.net_.data;
 using System;
@@ -62,12 +63,30 @@ namespace onlinemedicineservice__.net_.Controllers
 
         [Route("api/user/Login")]
         [HttpPost]
-        public HttpResponseMessage Login(user u)
+        public HttpResponseMessage Login(Systemusermodel u)
         {
-            var data = usersercice.Loging(u.U_username, u.U_password);
-            return Request.CreateResponse(HttpStatusCode.OK, data);
+            var user = usersercice.Loging(u.U_username, u.U_password);
+            var tokes = usersercice.Token(u);
+            if (tokes != null)
+            {
+                List<object> data = new List<object> { new { user = user, tokes = tokes  } };
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound, "User not found");
+           
 
             
+        }
+
+        [Route("api/user/Logout/{id}")]
+        [HttpGet]
+        public HttpResponseMessage Logout(int id)
+        {
+            usersercice.logout(id);
+            return Request.CreateResponse(HttpStatusCode.NotFound, "User is logout");
+
+
+
         }
 
 

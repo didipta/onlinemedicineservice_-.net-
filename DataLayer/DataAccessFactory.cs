@@ -34,5 +34,10 @@ namespace DataLayer
             return new categoryrepo(db);
         }
 
+        public static IAuth AuthDataAccess()
+        {
+            return new Authrepo(db);
+        }
+
     }
 }
