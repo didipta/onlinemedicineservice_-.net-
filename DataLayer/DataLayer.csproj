@@ -100,10 +100,12 @@
     <Compile Include="Database\Token.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="dataRepo\Authrepo.cs" />
     <Compile Include="dataRepo\categoryrepo.cs" />
     <Compile Include="dataRepo\productrepo.cs" />
     <Compile Include="dataRepo\ratingrepo.cs" />
     <Compile Include="dataRepo\systemuserrepo.cs" />
+    <Compile Include="dataRepo\Tokenrepo.cs" />
     <Compile Include="IAuth.cs" />
     <Compile Include="ILogin.cs" />
     <Compile Include="IRepository.cs" />

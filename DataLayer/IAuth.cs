@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace DataLayer
 {
    public interface IAuth
     {
-        bool Authenticate(string username, string password);
+        Token Authenticate(Systemuser user);
+        bool IsAuthenticated(string token);
+        void Logout(Systemuser user);
     }
 }
