@@ -12,6 +12,27 @@ namespace Businesslogic.Service
 {
      public class usersercice
     {
+        public static void Registertion(Systemusermodel s)
+        {
+            
+
+            var config = new MapperConfiguration(
+              cfg =>
+              {
+                  cfg.CreateMap<Systemusermodel , Systemuser>();
+
+
+              }
+
+              );
+
+
+            Mapper mapper = new Mapper(config);
+            var systemuser = mapper.Map<Systemuser>(s);
+
+            var x = DataAccessFactory.userDataAccess().Add(systemuser);
+
+        }
         public static Systemusermodel Loging(string username, string password)
         {
             var user = DataAccessFactory.LoginDataAccess().Getuser(username, password);
@@ -56,6 +77,12 @@ namespace Businesslogic.Service
             var tokes = mapper.Map<Tokenmodel>(token);
             return tokes;
 
+        }
+
+        public static bool CheckValidityToken(string token)
+        {
+            var rs = DataAccessFactory.AuthDataAccess().IsAuthenticated(token);
+            return rs;
         }
 
         public static void logout(int id)

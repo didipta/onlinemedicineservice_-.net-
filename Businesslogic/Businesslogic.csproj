@@ -45,15 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entity\addtocartmodel.cs" />
     <Compile Include="Entity\productcategorymodel.cs" />
     <Compile Include="Entity\productratingmodel.cs" />
     <Compile Include="Entity\ratingmodel.cs" />
     <Compile Include="Entity\Systemusermodel.cs" />
     <Compile Include="Entity\Tokenmodel.cs" />
+    <Compile Include="Entity\useraddtocartmodel.cs" />
     <Compile Include="Entity\userstokenmodel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\categorymodel.cs" />
     <Compile Include="Entity\productmodel.cs" />
+    <Compile Include="Service\Addtocartservice.cs" />
     <Compile Include="Service\productservice.cs" />
     <Compile Include="Service\usersercice.cs" />
   </ItemGroup>

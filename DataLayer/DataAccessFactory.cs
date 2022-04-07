@@ -34,6 +34,14 @@ namespace DataLayer
             return new categoryrepo(db);
         }
 
+        public static IRepository<addtocart, int> AddtocartDataAccess()
+        {
+            return new Addtocartrepo(db);
+        }
+        public static Iiteamget<addtocart, string> GetiteamDataAccess()
+        {
+            return new Addtocartrepo(db);
+        }
         public static IAuth AuthDataAccess()
         {
             return new Authrepo(db);

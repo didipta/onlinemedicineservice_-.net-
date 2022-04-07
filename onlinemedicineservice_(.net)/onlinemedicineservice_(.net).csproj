@@ -102,7 +102,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Auth\userauth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\productController.cs" />
+    <Compile Include="data\cart.cs" />
     <Compile Include="data\user.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

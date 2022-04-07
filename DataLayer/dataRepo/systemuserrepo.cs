@@ -16,7 +16,9 @@ namespace DataLayer.dataRepo
         }
         public bool Add(Systemuser obj)
         {
-            throw new NotImplementedException();
+            project.Systemusers.Add(obj);
+            if (project.SaveChanges() != 0) return true;
+            return false;
         }
 
         public bool Delete(int id)
@@ -31,7 +33,10 @@ namespace DataLayer.dataRepo
 
         public Systemuser Get(int id)
         {
-            throw new NotImplementedException();
+            var user = (from P in project.Systemusers
+                            where P.Id == id
+                            select P).FirstOrDefault();
+            return user;
         }
 
         public List<Systemuser> Get()

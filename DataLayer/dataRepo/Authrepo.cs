@@ -51,10 +51,9 @@ namespace DataLayer.dataRepo
                             where t.AccessToken.Equals(token) &&
                             t.ExpiredAt.Equals(null)
                             select t).FirstOrDefault();
-            if (ac_token != null) return true;
+            if (ac_token!= null) return true;
             return false;
-            if (ac_token != null) return true;
-            return false;
+            
         }
 
         public void Logout(int id)

@@ -2,6 +2,7 @@
 using Businesslogic;
 using Businesslogic.Entity;
 using Businesslogic.Service;
+using onlinemedicineservice__.net_.Auth;
 using onlinemedicineservice__.net_.data;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace onlinemedicineservice__.net_.Controllers
     [EnableCors("*","*","*")]
     public class HomeController : ApiController
     {
+
+       
         [Route("api/user/homepage")]
         [HttpGet]
         public HttpResponseMessage Homepage()
@@ -76,6 +79,30 @@ namespace onlinemedicineservice__.net_.Controllers
            
 
             
+        }
+
+        [Route("api/user/Registertion")]
+        [HttpPost]
+        public HttpResponseMessage Registertion(user s)
+        {
+            Systemusermodel ss = new Systemusermodel
+            {
+                U_name = s.Firstname + " " + s.LastName,
+                U_address = s.address,
+                U_email = s.U_email,
+                U_username = s.U_username,
+                U_profileimg = "pro.png",
+                U_phone = s.U_phone,
+                pharmacyname = "Null",
+                Usertype = "Customer",
+                U_password = s.password
+            };
+
+            usersercice.Registertion(ss);
+
+            return Request.CreateResponse(HttpStatusCode.OK, ss);
+
+
         }
 
         [Route("api/user/Logout/{id}")]
