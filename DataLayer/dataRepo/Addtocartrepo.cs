@@ -23,7 +23,13 @@ namespace DataLayer.dataRepo
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var Prodructs = (from P in project.addtocarts
+                             where P.Id == id
+                             select P).FirstOrDefault();
+
+            project.addtocarts.Remove(Prodructs);
+            if (project.SaveChanges() != 0) return true;
+            return false;
         }
 
         public bool Edit(addtocart obj)

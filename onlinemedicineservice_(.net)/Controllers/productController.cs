@@ -33,5 +33,23 @@ namespace onlinemedicineservice__.net_.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [Route("api/user/cartiteamdelet/{id}")]
+        [HttpGet]
+        public HttpResponseMessage getcartdelete(int id)
+        {
+            var data = Addtocartservice.getcartdelet(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/user/profileshow/{id}")]
+        [HttpGet]
+        public HttpResponseMessage profileshows(int id)
+        {
+            var data = usersercice.profileshow(id);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+
+        }
     }
 }

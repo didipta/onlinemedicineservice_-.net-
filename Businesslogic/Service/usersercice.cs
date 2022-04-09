@@ -92,5 +92,24 @@ namespace Businesslogic.Service
             DataAccessFactory.AuthDataAccess().Logout(id);
 
         }
+
+        public static Systemusermodel profileshow(int id)
+        {
+            var user = DataAccessFactory.userDataAccess().Get(id);
+            var config = new MapperConfiguration(
+            cfg =>
+            {
+                cfg.CreateMap<Systemuser, Systemusermodel>();
+                cfg.CreateMap<Systemusermodel, Systemuser>();
+               
+
+
+            }
+
+            );
+            Mapper mapper = new Mapper(config);
+            var s = mapper.Map<Systemusermodel>(user);
+            return s;
+        }
     }
 }

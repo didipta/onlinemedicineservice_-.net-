@@ -17,9 +17,10 @@ namespace Businesslogic.Service
             var Prodructs= DataAccessFactory.ProductDataAccess().Get(id);
             var addto = DataAccessFactory.AddtocartDataAccess().Get(id);
             var x = "khcdakhdvack";
-            int total = (addto.P_O_quantity + quantity);
-            if(addto.U_username== username)
+            
+            if(addto!=null && addto.U_username== username)
             {
+                int total = (addto.P_O_quantity + quantity);
                 addto.P_O_quantity= total;
                 addto.P_tprice = (Int32.Parse(Prodructs.P_price) * total).ToString();
                 var data = DataAccessFactory.AddtocartDataAccess().Edit(addto);
@@ -78,5 +79,10 @@ namespace Businesslogic.Service
 
         }
 
+        public static bool getcartdelet(int id)
+        {
+            var cart = DataAccessFactory.AddtocartDataAccess().Delete(id);
+            return cart;
+        }
         }
 }

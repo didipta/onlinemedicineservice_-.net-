@@ -8,7 +8,7 @@ namespace Businesslogic.Entity
 {
    public class Systemusermodel
     {
-       
+        public int Id { get; set; }
         public string U_name { get; set; }
         public string U_phone { get; set; }
         public string U_address { get; set; }
