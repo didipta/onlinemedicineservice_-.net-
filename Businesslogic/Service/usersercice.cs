@@ -79,10 +79,25 @@ namespace Businesslogic.Service
 
         }
 
-        public static bool CheckValidityToken(string token)
+        public static Tokenmodel CheckValidityToken(string token)
         {
+            
+            var config = new MapperConfiguration(
+             cfg =>
+             {
+                 cfg.CreateMap<Systemuser, Systemusermodel>();
+                 cfg.CreateMap<Systemusermodel, Systemuser>();
+                 cfg.CreateMap<Token, Tokenmodel>();
+
+
+             }
+
+             );
+            Mapper mapper = new Mapper(config);
             var rs = DataAccessFactory.AuthDataAccess().IsAuthenticated(token);
-            return rs;
+
+            var tokes = mapper.Map<Tokenmodel>(rs);
+            return tokes;
         }
 
         public static void logout(int id)

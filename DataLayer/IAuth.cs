@@ -10,7 +10,7 @@ namespace DataLayer
    public interface IAuth
     {
         Token Authenticate(Systemuser user);
-        bool IsAuthenticated(string token);
+        Token IsAuthenticated(string token);
         void Logout(int id);
     }
 }

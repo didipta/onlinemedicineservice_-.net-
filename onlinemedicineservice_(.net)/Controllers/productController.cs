@@ -51,5 +51,69 @@ namespace onlinemedicineservice__.net_.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
 
         }
+
+        [Route("api/user/orderproduct")]
+        [HttpPost]
+        public HttpResponseMessage orderproduct(orderitem o)
+        {
+             Addtocartservice.orderproduct(o.orderid, o.totaleprice, o.Paymenttype, o.userid, o.quantiy);
+            return Request.CreateResponse(HttpStatusCode.OK,"All item add");
+
+        }
+
+        [Route("api/user/allorders/{name}")]
+        [HttpGet]
+        public HttpResponseMessage getallorder(string name)
+        {
+            var data = Addtocartservice.Getorder(name);
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/user/orderdetails/{id}")]
+        [HttpGet]
+        public HttpResponseMessage getallorderdetails(int id)
+        {
+            var data = Addtocartservice.orderdetailes(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+
+        [Route("api/user/returnproduct/{id}")]
+        [HttpGet]
+        public HttpResponseMessage returnproduct(int id)
+        {
+            var data = Addtocartservice.orderd(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/user/returndetails")]
+        [HttpPost]
+        public HttpResponseMessage returndetails(returnpro r)
+        {
+            Addtocartservice.returnedit(r.id,r.reason,r.returnid,r.username);
+
+            return Request.CreateResponse(HttpStatusCode.OK,"ok");
+        }
+
+        [Route("api/user/allreturn/{name}")]
+        [HttpGet]
+        public HttpResponseMessage getallreturn(string name)
+        {
+            var data = Addtocartservice.returns(name);
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/user/returdetailsall/{id}")]
+        [HttpGet]
+        public HttpResponseMessage returdetailsall(int id)
+        {
+            var data = Addtocartservice.returndetails(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
     }
 }

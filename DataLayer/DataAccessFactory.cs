@@ -47,5 +47,35 @@ namespace DataLayer
             return new Authrepo(db);
         }
 
+        public static IRepository<myorder, int> orderDataAcces()
+        {
+            return new orderrepo(db);
+        }
+        public static Iiteamget<myorder, string> orderGetiteamDataAccess()
+        {
+            return new orderrepo(db);
+        }
+
+          public static IRepository<Orderdetail, int> orderdetailsAccess()
+        {
+            return new orderdetailsrepo(db);
+        }
+
+        
+
+        public static IRepository<Returnproduct, int> ReturnproducAccess()
+        {
+            return new returnreop(db);
+        }
+
+        public static IRepository<returndeteli, int> returndetailesAccess()
+        {
+            return new returndetailes(db);
+        }
+        public static Iiteamget<Returnproduct, string> GetiteamReturnDataAccess()
+        {
+            return new returnreop(db);
+        }
+
     }
 }
