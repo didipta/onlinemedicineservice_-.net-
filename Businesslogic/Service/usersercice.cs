@@ -126,5 +126,15 @@ namespace Businesslogic.Service
             var s = mapper.Map<Systemusermodel>(user);
             return s;
         }
+
+        public static void profileimgchange(int id,string imgpath)
+        {
+            var user = DataAccessFactory.userDataAccess().Get(id);
+
+            user.U_profileimg = imgpath;
+            DataAccessFactory.userDataAccess().Edit(user);
+
+        }
+
     }
 }

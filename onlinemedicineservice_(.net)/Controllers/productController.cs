@@ -115,5 +115,15 @@ namespace onlinemedicineservice__.net_.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [Route("api/user/profileimgch")]
+        [HttpPost]
+        public HttpResponseMessage profileimgchang(profileimg p)
+        {
+             usersercice.profileimgchange(p.id, p.imgfile);
+
+            return Request.CreateResponse(HttpStatusCode.OK, "uploaed");
+        }
+
     }
 }
