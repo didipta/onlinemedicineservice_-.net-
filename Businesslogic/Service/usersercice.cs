@@ -1,12 +1,14 @@
 ﻿using Businesslogic.Entity;
 using DataLayer;
 using System;
+using DataLayer.datarazos;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using DataLayer.Database;
+using DataLayer.dataRepo;
 
 namespace Businesslogic.Service
 {
@@ -111,5 +113,16 @@ namespace Businesslogic.Service
             var s = mapper.Map<Systemusermodel>(user);
             return s;
         }
+        public static void EditProfile(Systemusermodel p)
+        {
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Systemusermodel, Systemuser>();
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<Systemuser>(p);
+            systemuserrepo.EditProfile(data);
+        }
     }
-}
+    }
+

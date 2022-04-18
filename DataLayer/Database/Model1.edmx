@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="projectsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="addtocart">
           <Key>
             <PropertyRef Name="Id" />
@@ -46,6 +46,7 @@
           <Property Name="Paymanttype" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="O_status" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="totale_iteam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="deliveryman" Type="int" />
         </EntityType>
         <EntityType Name="Orderdetails">
           <Key>
@@ -250,7 +251,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelStoreContainer">
+        <EntityContainer Name="projectsModelStoreContainer">
           <EntitySet Name="addtocart" EntityType="Self.addtocart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="deliverinfo" EntityType="Self.deliverinfo" Schema="dbo" store:Type="Tables" />
@@ -307,7 +308,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="projectsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="addtocart">
           <Key>
             <PropertyRef Name="Id" />
@@ -352,6 +353,7 @@
           <Property Name="Paymanttype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="O_status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="totale_iteam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deliveryman" Type="Int32" />
           <NavigationProperty Name="deliverinfoes" Relationship="Self.FK_deliverinfo_myorders" FromRole="myorders" ToRole="deliverinfo" />
           <NavigationProperty Name="Systemuser" Relationship="Self.FK_myorders_myorders" FromRole="myorders" ToRole="Systemusers" />
           <NavigationProperty Name="Orderdetails" Relationship="Self.FK_Orderdetails_Products" FromRole="myorders" ToRole="Orderdetails" />
@@ -573,7 +575,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="projectsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="addtocarts" EntityType="Self.addtocart" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="deliverinfoes" EntityType="Self.deliverinfo" />
@@ -631,9 +633,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="projectsModelStoreContainer" CdmEntityContainer="projectsEntities">
           <EntitySetMapping Name="addtocarts">
-            <EntityTypeMapping TypeName="Model.addtocart">
+            <EntityTypeMapping TypeName="projectsModel.addtocart">
               <MappingFragment StoreEntitySet="addtocart">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="P_id" ColumnName="P_id" />
@@ -646,7 +648,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="Model.Category">
+            <EntityTypeMapping TypeName="projectsModel.Category">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -654,7 +656,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="deliverinfoes">
-            <EntityTypeMapping TypeName="Model.deliverinfo">
+            <EntityTypeMapping TypeName="projectsModel.deliverinfo">
               <MappingFragment StoreEntitySet="deliverinfo">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="O_id" ColumnName="O_id" />
@@ -665,7 +667,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="myorders">
-            <EntityTypeMapping TypeName="Model.myorder">
+            <EntityTypeMapping TypeName="projectsModel.myorder">
               <MappingFragment StoreEntitySet="myorders">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Oder_id" ColumnName="Oder_id" />
@@ -675,11 +677,12 @@
                 <ScalarProperty Name="Paymanttype" ColumnName="Paymanttype" />
                 <ScalarProperty Name="O_status" ColumnName="O_status" />
                 <ScalarProperty Name="totale_iteam" ColumnName="totale_iteam" />
+                <ScalarProperty Name="deliveryman" ColumnName="deliveryman" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orderdetails">
-            <EntityTypeMapping TypeName="Model.Orderdetail">
+            <EntityTypeMapping TypeName="projectsModel.Orderdetail">
               <MappingFragment StoreEntitySet="Orderdetails">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Order_id" ColumnName="Order_id" />
@@ -694,7 +697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="Model.Product">
+            <EntityTypeMapping TypeName="projectsModel.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="P_name" ColumnName="P_name" />
@@ -707,7 +710,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ratings">
-            <EntityTypeMapping TypeName="Model.Rating">
+            <EntityTypeMapping TypeName="projectsModel.Rating">
               <MappingFragment StoreEntitySet="Rating">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="rating1" ColumnName="rating" />
@@ -718,7 +721,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="returndetelis">
-            <EntityTypeMapping TypeName="Model.returndeteli">
+            <EntityTypeMapping TypeName="projectsModel.returndeteli">
               <MappingFragment StoreEntitySet="returndetelis">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="p_name" ColumnName="p_name" />
@@ -730,7 +733,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Returnproducts">
-            <EntityTypeMapping TypeName="Model.Returnproduct">
+            <EntityTypeMapping TypeName="projectsModel.Returnproduct">
               <MappingFragment StoreEntitySet="Returnproduct">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="return_id" ColumnName="return_id" />
@@ -742,7 +745,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Systemusers">
-            <EntityTypeMapping TypeName="Model.Systemuser">
+            <EntityTypeMapping TypeName="projectsModel.Systemuser">
               <MappingFragment StoreEntitySet="Systemusers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="U_name" ColumnName="U_name" />
@@ -758,7 +761,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tokens">
-            <EntityTypeMapping TypeName="Model.Token">
+            <EntityTypeMapping TypeName="projectsModel.Token">
               <MappingFragment StoreEntitySet="Token">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />

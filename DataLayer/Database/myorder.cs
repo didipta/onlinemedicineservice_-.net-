@@ -29,6 +29,7 @@ namespace DataLayer.Database
         public string Paymanttype { get; set; }
         public string O_status { get; set; }
         public string totale_iteam { get; set; }
+        public Nullable<int> deliveryman { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<deliverinfo> deliverinfoes { get; set; }

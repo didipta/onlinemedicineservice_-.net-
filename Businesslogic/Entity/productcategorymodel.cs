@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Businesslogic.Entity
 {
-   public class productcategorymodel : categorymodel
+   public class productcategorymodel : orderdetailssmodel
     {
         public List<productmodel> Products { get; set; }
 

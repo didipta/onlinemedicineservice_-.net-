@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DataLayer.dataRepo
 {
-    class systemuserrepo : IRepository<Systemuser, int>, ILogin<Systemuser>
+   public class systemuserrepo : IRepository<Systemuser, int>, ILogin<Systemuser>
     {
-        Entities project;
-        public systemuserrepo(Entities db)
+        projectsEntities project = new projectsEntities();
+        public systemuserrepo(projectsEntities db)
         {
             project = db;
         }
@@ -28,7 +28,11 @@ namespace DataLayer.dataRepo
 
         public bool Edit(Systemuser obj)
         {
-            throw new NotImplementedException();
+            projectsEntities project = new projectsEntities();
+            var ds = project.Systemusers.FirstOrDefault(e => e.Id == obj.Id);
+            project.Entry(ds).CurrentValues.SetValues(obj);
+            project.SaveChanges();
+            return true;
         }
 
         public Systemuser Get(int id)
@@ -56,6 +60,14 @@ namespace DataLayer.dataRepo
         public Systemuser Getitem(int id)
         {
             throw new NotImplementedException();
+        }
+        public static void EditProfile(Systemuser pro)
+        {
+            projectsEntities project = new projectsEntities();
+            var ds = project.Systemusers.FirstOrDefault(e => e.Id == pro.Id);
+            project.Entry(ds).CurrentValues.SetValues(pro);
+            project.SaveChanges();
+
         }
     }
 }

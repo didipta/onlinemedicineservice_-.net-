@@ -9,8 +9,8 @@ namespace DataLayer.dataRepo
 {
    public class categoryrepo : IRepository<Category, int>
     {
-        Entities project;
-        public categoryrepo(Entities db)
+        projectsEntities project;
+        public categoryrepo(projectsEntities db)
         {
             project = db;
         }
@@ -41,7 +41,7 @@ namespace DataLayer.dataRepo
 
             public List<Category> Get()
         {
-            Entities project = new Entities();
+            projectsEntities project = new projectsEntities();
             var Categorie = project.Categories.ToList();
             return Categorie;
 

@@ -9,8 +9,8 @@ namespace DataLayer.dataRepo
 {
    public class Addtocartrepo : IRepository<addtocart, int>, Iiteamget<addtocart, string>
     {
-        Entities project;
-        public Addtocartrepo(Entities db)
+        projectsEntities project;
+        public Addtocartrepo(projectsEntities db)
         {
             project = db;
         }

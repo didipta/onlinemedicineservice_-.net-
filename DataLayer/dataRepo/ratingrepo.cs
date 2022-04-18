@@ -9,8 +9,8 @@ namespace DataLayer.dataRepo
 {
     public class ratingrepo : IRepository<Rating, int>
     {
-        Entities project;
-        public ratingrepo(Entities db)
+        projectsEntities project;
+        public ratingrepo(projectsEntities db)
         {
             project = db;
         }

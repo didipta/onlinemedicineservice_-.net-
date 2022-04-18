@@ -103,6 +103,8 @@
     <Compile Include="dataRepo\Addtocartrepo.cs" />
     <Compile Include="dataRepo\Authrepo.cs" />
     <Compile Include="dataRepo\categoryrepo.cs" />
+    <Compile Include="dataRepo\myorderrepo.cs" />
+    <Compile Include="dataRepo\orderdetailsrepo.cs" />
     <Compile Include="dataRepo\productrepo.cs" />
     <Compile Include="dataRepo\ratingrepo.cs" />
     <Compile Include="dataRepo\systemuserrepo.cs" />
@@ -127,6 +129,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -9,8 +9,8 @@ namespace DataLayer.datarazos
 {
     public class productrepo : IRepository<Product, int>
     {
-        Entities project;
-        public productrepo(Entities db)
+        projectsEntities project= new projectsEntities();
+        public productrepo(projectsEntities db)
         {
             project = db;
         }
@@ -48,7 +48,48 @@ namespace DataLayer.datarazos
         public Product Getitem(int id)
         {
             throw new NotImplementedException();
+     
+       }
+        public static void AddProduct(Product po)
+        {
+
+            projectsEntities project = new projectsEntities();
+            project.Products.Add(po);
+            var result = project.SaveChanges();
+
+
+
+
+        }
+
+        public static void DeleteProduct(int id)
+        {
+            projectsEntities project = new projectsEntities();
+            var pro = project.Products.Find(id);
+            project.Products.Remove(pro);
+            project.SaveChanges();
+
+        }
+        public static void EditProduct(Product pro)
+        {
+            projectsEntities project = new projectsEntities();
+            var ds = project.Products.FirstOrDefault(e => e.Id == pro.Id);
+            project.Entry(ds).CurrentValues.SetValues(pro);
+            project.SaveChanges();
+
         }
     }
-   
+
+
+
+
+
+
+
+
+
+
+
 }
+   
+

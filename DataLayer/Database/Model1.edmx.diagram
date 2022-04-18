@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="26b2b4f0de0c4a268faef545f565f52f" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.addtocart" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.deliverinfo" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.myorder" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Orderdetail" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Rating" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.returndeteli" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Returnproduct" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Systemuser" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Token" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK_addtocart_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Products_Categories" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_deliverinfo_myorders" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_myorders_myorders" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Orderdetails_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Orderdetails_Products1" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Rating_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_returndetelis_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_returndetelis_Returnproduct" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Token_Systemusers" ManuallyRouted="false" />
+      <Diagram DiagramId="a8cf2ec12c1c4f32b586aa9318149b8a" Name="Diagram1">
+        <EntityTypeShape EntityType="projectsModel.addtocart" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.Category" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.deliverinfo" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.myorder" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.Orderdetail" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.Product" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.Rating" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.returndeteli" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.Returnproduct" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.Systemuser" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectsModel.Token" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <AssociationConnector Association="projectsModel.FK_addtocart_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_deliverinfo_myorders" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_myorders_myorders" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_Orderdetails_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_Orderdetails_Products1" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_Rating_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_returndetelis_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_returndetelis_Returnproduct" ManuallyRouted="false" />
+        <AssociationConnector Association="projectsModel.FK_Token_Systemusers" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

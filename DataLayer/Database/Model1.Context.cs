@@ -13,10 +13,10 @@ namespace DataLayer.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class projectsEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public projectsEntities()
+            : base("name=projectsEntities")
         {
         }
     

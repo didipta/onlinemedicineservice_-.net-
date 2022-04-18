@@ -16,7 +16,7 @@ namespace Businesslogic.Service
         {
             var Prodructs= DataAccessFactory.ProductDataAccess().Get(id);
             var addto = DataAccessFactory.AddtocartDataAccess().Get(id);
-            var x = "khcdakhdvack";
+            
             
             if(addto!=null && addto.U_username== username)
             {

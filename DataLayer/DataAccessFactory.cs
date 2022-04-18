@@ -12,7 +12,7 @@ namespace DataLayer
     
    public class DataAccessFactory
     {
-        static Entities db = new Entities();
+        static projectsEntities db = new projectsEntities();
 
         public static IRepository<Product, int> ProductDataAccess()
         {
@@ -29,7 +29,7 @@ namespace DataLayer
             return new systemuserrepo(db);
         }
 
-        public static IRepository<Category, int> CategoryDataAccess()
+        public static IRepository<Category, int> orderdetailsDataAccess()
         {
             return new categoryrepo(db);
         }
@@ -45,6 +45,14 @@ namespace DataLayer
         public static IAuth AuthDataAccess()
         {
             return new Authrepo(db);
+        }
+        public static IRepository<Orderdetail, int> GetorderDataAccess()
+        {
+           return new orderdetailsrepo(db);
+        }
+        public static IRepository<myorder, int> GetmyorderDataAccess()
+        {
+             return new myorderrepo(db);
         }
 
     }

@@ -9,8 +9,8 @@ namespace DataLayer.dataRepo
 {
     class Tokenrepo : IRepository<Token, int>
     {
-        Entities project;
-        public Tokenrepo(Entities db)
+        projectsEntities project;
+        public Tokenrepo(projectsEntities db)
         {
             project = db;
         }

@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entity\addtocartmodel.cs" />
+    <Compile Include="Entity\myordermodel.cs" />
+    <Compile Include="Entity\orderdetailssModel.cs" />
     <Compile Include="Entity\productcategorymodel.cs" />
     <Compile Include="Entity\productratingmodel.cs" />
     <Compile Include="Entity\ratingmodel.cs" />
@@ -57,6 +59,8 @@
     <Compile Include="Entity\categorymodel.cs" />
     <Compile Include="Entity\productmodel.cs" />
     <Compile Include="Service\Addtocartservice.cs" />
+    <Compile Include="Service\myorderservice.cs" />
+    <Compile Include="Service\orderdetailservice.cs" />
     <Compile Include="Service\productservice.cs" />
     <Compile Include="Service\usersercice.cs" />
   </ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="projectsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="addtocart">
     <Key>
       <PropertyRef Name="Id" />
@@ -44,6 +44,7 @@
     <Property Name="Paymanttype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="O_status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="totale_iteam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="deliveryman" Type="Int32" />
     <NavigationProperty Name="deliverinfoes" Relationship="Self.FK_deliverinfo_myorders" FromRole="myorders" ToRole="deliverinfo" />
     <NavigationProperty Name="Systemuser" Relationship="Self.FK_myorders_myorders" FromRole="myorders" ToRole="Systemusers" />
     <NavigationProperty Name="Orderdetails" Relationship="Self.FK_Orderdetails_Products" FromRole="myorders" ToRole="Orderdetails" />
@@ -265,7 +266,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="projectsEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="addtocarts" EntityType="Self.addtocart" />
     <EntitySet Name="Categories" EntityType="Self.Category" />
     <EntitySet Name="deliverinfoes" EntityType="Self.deliverinfo" />

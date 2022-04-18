@@ -10,8 +10,8 @@ namespace DataLayer.dataRepo
     class Authrepo : IAuth
 
     {
-        Entities project;
-        public Authrepo(Entities db)
+        projectsEntities project;
+        public Authrepo(projectsEntities db)
         {
             project = db;
         }

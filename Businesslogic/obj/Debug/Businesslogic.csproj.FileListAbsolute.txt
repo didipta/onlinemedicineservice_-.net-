@@ -12,3 +12,17 @@ D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Busin
 D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.csproj.CopyComplete
 D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.dll
 D:\Final .net project\onlinemedicineservice_(.net)\Businesslogic\obj\Debug\Businesslogic.pdb
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\Businesslogic.dll
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\Businesslogic.pdb
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\AutoMapper.dll
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\DataLayer.dll
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\EntityFramework.dll
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\DataLayer.pdb
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\DataLayer.dll.config
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\AutoMapper.xml
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\bin\Debug\EntityFramework.xml
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\obj\Debug\Businesslogic.csprojAssemblyReference.cache
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\obj\Debug\Businesslogic.csproj.CoreCompileInputs.cache
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\obj\Debug\Businesslogic.csproj.CopyComplete
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\obj\Debug\Businesslogic.dll
+E:\Net project\onlinemedicineservice_-.net-\Businesslogic\obj\Debug\Businesslogic.pdb
