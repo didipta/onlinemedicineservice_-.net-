@@ -133,16 +133,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Businesslogic\Businesslogic.csproj">
-      <Project>{d4eee9a9-0874-488d-9d69-aaa99d4f034c}</Project>
-      <Name>Businesslogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{7D7F36D1-3938-4BFB-9F7B-42617B1BB14F}</Project>
-      <Name>DataLayer</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
