@@ -26,7 +26,9 @@ namespace DataLayer.datarazos
 
         public bool Edit(Product obj)
         {
-            throw new NotImplementedException();
+            project.Entry(obj).CurrentValues.SetValues(obj);
+            if (project.SaveChanges() != 0) return true;
+            return false;
         }
 
         public Product Get(int id)

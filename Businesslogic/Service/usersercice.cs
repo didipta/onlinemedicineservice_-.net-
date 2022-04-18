@@ -81,10 +81,25 @@ namespace Businesslogic.Service
 
         }
 
-        public static bool CheckValidityToken(string token)
+        public static Tokenmodel CheckValidityToken(string token)
         {
+            
+            var config = new MapperConfiguration(
+             cfg =>
+             {
+                 cfg.CreateMap<Systemuser, Systemusermodel>();
+                 cfg.CreateMap<Systemusermodel, Systemuser>();
+                 cfg.CreateMap<Token, Tokenmodel>();
+
+
+             }
+
+             );
+            Mapper mapper = new Mapper(config);
             var rs = DataAccessFactory.AuthDataAccess().IsAuthenticated(token);
-            return rs;
+
+            var tokes = mapper.Map<Tokenmodel>(rs);
+            return tokes;
         }
 
         public static void logout(int id)
@@ -113,6 +128,7 @@ namespace Businesslogic.Service
             var s = mapper.Map<Systemusermodel>(user);
             return s;
         }
+<<<<<<< HEAD
         public static void EditProfile(Systemusermodel p)
         {
             var config = new MapperConfiguration(c =>
@@ -123,6 +139,18 @@ namespace Businesslogic.Service
             var data = mapper.Map<Systemuser>(p);
             systemuserrepo.EditProfile(data);
         }
+=======
+
+        public static void profileimgchange(int id,string imgpath)
+        {
+            var user = DataAccessFactory.userDataAccess().Get(id);
+
+            user.U_profileimg = imgpath;
+            DataAccessFactory.userDataAccess().Edit(user);
+
+        }
+
+>>>>>>> 50a298ef7a354cb39d49d0b3fb344bf23fe0a698
     }
     }
 

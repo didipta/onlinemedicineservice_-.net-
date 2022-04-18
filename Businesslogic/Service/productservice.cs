@@ -128,6 +128,7 @@ namespace Businesslogic.Service
             return data;
 
         }
+<<<<<<< HEAD
         public static void AddProduct(productmodel p)
         {
             var config = new MapperConfiguration(c =>
@@ -160,5 +161,9 @@ namespace Businesslogic.Service
             productrepo.EditProduct(data);
         }
 
+=======
+
+       
+>>>>>>> 50a298ef7a354cb39d49d0b3fb344bf23fe0a698
     }
 }

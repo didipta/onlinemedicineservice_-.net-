@@ -108,6 +108,9 @@
     <Compile Include="Controllers\productController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="data\cart.cs" />
+    <Compile Include="data\orderitem.cs" />
+    <Compile Include="data\profileimg.cs" />
+    <Compile Include="data\returnpro.cs" />
     <Compile Include="data\user.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

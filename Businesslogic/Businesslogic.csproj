@@ -46,11 +46,19 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entity\addtocartmodel.cs" />
+<<<<<<< HEAD
     <Compile Include="Entity\myordermodel.cs" />
     <Compile Include="Entity\orderdetailssModel.cs" />
+=======
+    <Compile Include="Entity\oderdetailesmodel.cs" />
+    <Compile Include="Entity\orderandordderdetaliesmodel.cs" />
+    <Compile Include="Entity\ordermodel.cs" />
+>>>>>>> 50a298ef7a354cb39d49d0b3fb344bf23fe0a698
     <Compile Include="Entity\productcategorymodel.cs" />
     <Compile Include="Entity\productratingmodel.cs" />
     <Compile Include="Entity\ratingmodel.cs" />
+    <Compile Include="Entity\returndetails.cs" />
+    <Compile Include="Entity\returnmodel.cs" />
     <Compile Include="Entity\Systemusermodel.cs" />
     <Compile Include="Entity\Tokenmodel.cs" />
     <Compile Include="Entity\useraddtocartmodel.cs" />

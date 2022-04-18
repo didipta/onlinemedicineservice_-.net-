@@ -45,14 +45,13 @@ namespace DataLayer.dataRepo
 
         }
 
-        public bool IsAuthenticated(string token)
+        public Token IsAuthenticated(string token)
         {
             var ac_token = (from t in project.Tokens
                             where t.AccessToken.Equals(token) &&
                             t.ExpiredAt.Equals(null)
                             select t).FirstOrDefault();
-            if (ac_token!= null) return true;
-            return false;
+            return ac_token;
             
         }
 

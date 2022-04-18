@@ -24,9 +24,20 @@ namespace onlinemedicineservice__.net_.Auth
             {
                 string token = authHeader.ToString();
                 var rs = usersercice.CheckValidityToken(token);
-                if (!rs)
+                
+                if (rs==null)
                 {
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized, "Unauthorized Access");
+                }
+                else if(rs!=null)
+                {
+                    var user = usersercice.profileshow(rs.user_id);
+
+                    if (user.Usertype != "Customer")
+                    {
+                        actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized, "only customer  Access");
+                    }
+
                 }
             }
             base.OnAuthorization(actionContext);

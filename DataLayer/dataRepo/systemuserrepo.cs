@@ -28,11 +28,17 @@ namespace DataLayer.dataRepo
 
         public bool Edit(Systemuser obj)
         {
+<<<<<<< HEAD
             projectsEntities project = new projectsEntities();
             var ds = project.Systemusers.FirstOrDefault(e => e.Id == obj.Id);
             project.Entry(ds).CurrentValues.SetValues(obj);
             project.SaveChanges();
             return true;
+=======
+            project.Entry(obj).CurrentValues.SetValues(obj);
+            if (project.SaveChanges() != 0) return true;
+            return false;
+>>>>>>> 50a298ef7a354cb39d49d0b3fb344bf23fe0a698
         }
 
         public Systemuser Get(int id)

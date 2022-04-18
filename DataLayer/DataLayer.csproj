@@ -103,10 +103,17 @@
     <Compile Include="dataRepo\Addtocartrepo.cs" />
     <Compile Include="dataRepo\Authrepo.cs" />
     <Compile Include="dataRepo\categoryrepo.cs" />
+<<<<<<< HEAD
     <Compile Include="dataRepo\myorderrepo.cs" />
     <Compile Include="dataRepo\orderdetailsrepo.cs" />
+=======
+    <Compile Include="dataRepo\orderdetailsrepo.cs" />
+    <Compile Include="dataRepo\orderrepo.cs" />
+>>>>>>> 50a298ef7a354cb39d49d0b3fb344bf23fe0a698
     <Compile Include="dataRepo\productrepo.cs" />
     <Compile Include="dataRepo\ratingrepo.cs" />
+    <Compile Include="dataRepo\returndetailes.cs" />
+    <Compile Include="dataRepo\returnreop.cs" />
     <Compile Include="dataRepo\systemuserrepo.cs" />
     <Compile Include="dataRepo\Tokenrepo.cs" />
     <Compile Include="IAuth.cs" />
